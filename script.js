@@ -1,10 +1,8 @@
 async function chargerCitation() {
   const response = await fetch(
-    "https://api.allorigins.win/get?url=" +
-      encodeURIComponent("https://zenquotes.io/api/random")
+    "https://api.allorigins.win/raw?url=https://zenquotes.io/api/random"
   );
-  const proxyData = await response.json();
-  const data = JSON.parse(proxyData.contents);
+  const data = await response.json();
   document.getElementById("citation").innerText = `${data[0].q} — ${data[0].a}`;
 }
 
